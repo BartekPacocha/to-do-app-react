@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './ShowList.css';
-import { ListGroup, ListGroupItem, Container } from 'reactstrap';
+import { ListGroup, ListGroupItem, Container, Button } from 'reactstrap';
 
 class ShowList extends Component {
     __renderTask(task) {
         return(
-            <ListGroupItem key={task.id} className="text-muted">{task.name}</ListGroupItem>
+            <ListGroupItem
+                onClick={() => this.props.toggleChecked(task.id)} 
+                key={task.id} 
+                className={`text-muted ${ task.checked ? 'task-muted__checked' : '' }`}>
+                {task.name}
+                <Button onClick={() => this.props.deleteItem(task.id)} color="danger">X</Button>
+            </ListGroupItem>
         );
     }
 

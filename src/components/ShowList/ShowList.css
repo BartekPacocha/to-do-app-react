@@ -1,0 +1,6 @@
+.text-muted {
+    cursor: pointer
+}
+.task-muted__checked {
+    text-decoration: line-through !important;
+}

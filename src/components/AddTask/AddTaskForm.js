@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './AddTaskForm.css';
-import { Button, Input, Row, Form, Container } from 'reactstrap';
+import { Button, Input, Row, Container, Col } from 'reactstrap';
 
 class AddTaskForm extends Component {
     constructor () {
@@ -30,17 +30,16 @@ class AddTaskForm extends Component {
         return (
             <Container>
                 <Row>
-                    <Form>
-                        <Input type="text" name="email" id="exampleEmail" placeholder="Add task"  autoComplete="off" onChange={this.handleChange} value={this.state.value} />
-                    </Form>
-                        <Button onClick={() => this.clearBtn()} color="danger" block={false}>X</Button>
-                        <Button onClick={() => this.__onClickAddBtn()} 
-                                color="success" 
-                                block={false}
-                                disabled={!this.state.value.length}
-                        >
-                            Add
-                        </Button>
+                    <Col xs="11"><Input type="text" name="addTask" placeholder="Add task"  autoComplete="off" onChange={this.handleChange} value={this.state.value} /></Col>
+                    
+                    <Button onClick={() => this.clearBtn()} color="danger" block={false}>X</Button>
+                    <Button onClick={() => this.__onClickAddBtn()} 
+                            color="success" 
+                            block={false}
+                            disabled={!this.state.value.length}
+                    >
+                        Add
+                    </Button>
                 </Row>    
             </Container>
         );
